@@ -4,7 +4,6 @@ import { toast } from "react-toastify";
 import "./LoginRegistter.css";
 import { FaUser, FaLock, FaHome } from "react-icons/fa";
 
-
 const Login = () => {
   const navigate = useNavigate();
   const [form, setForm] = useState({
@@ -25,7 +24,7 @@ const Login = () => {
 
     try {
       const response = await fetch(
-        "http://localhost/SmartKey/Backend/api/login/",
+        "https://med-api-wine.vercel.app/api/users/login",
         {
           method: "POST",
           credentials: "same-origin",
@@ -42,6 +41,7 @@ const Login = () => {
 
       const data = await response.json();
       if (response.ok) {
+        console.log("Login successful", data);
         data["user"]["IsAdmin"] === 1
           ? navigate("/Dashboard")
           : alert("Please constact admin");
