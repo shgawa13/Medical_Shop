@@ -6,6 +6,15 @@ import Footer from "./components/Footer/Footer";
 import Products from "./components/Products/Products";
 import TopProducts from "./components/TopProducts/TopProducts";
 
+import MainDashboard from "./components/Dashboard/Pages/MainDashboard";
+import UsersList from "./components/Dashboard/Pages/Users/UsersList";
+import AddnewUser from "./components/Dashboard/Pages/Users/AddNewUser";
+import UpdateUser from "./components/Dashboard/Pages/Users/UpdateUser";
+
+import ProductsList from "./components/Dashboard/Pages/Products/ProductsList";
+import AddNewProduct from "./components/Dashboard/Pages/Products/AddNewProduct";
+import UpdateProduct from "./components/Dashboard/Pages/Products/UpdateProduct";
+
 import Testimonials from "./components/Testimonials/Testimonials";
 
 import Banner from "./components/Banner/Banner";
@@ -40,6 +49,24 @@ const Router = () => {
 
         <Route path="/chatbot" element={<ChatBotPage />} />
         <Route path="/chat" element={<ChatPage />} />
+        <Route path="/Dashboard" element={<MainDashboard />}>
+          {/* Users */}
+          <Route path="/Dashboard/Users" element={<UsersList />} />
+          <Route path="/Dashboard/Users/addnew" element={<AddnewUser />} />
+          <Route path="/Dashboard/Users/Update/:id" element={<UpdateUser />} />
+
+          {/* Products */}
+          <Route path="/Dashboard/Products" element={<ProductsList />} />
+          <Route
+            path="/Dashboard/Products/addnew"
+            element={<AddNewProduct />}
+          />
+
+          <Route
+            path="/Dashboard/Products/Update/:id"
+            element={<UpdateProduct />}
+          />
+        </Route>
       </Routes>
     </Bro>
   );
